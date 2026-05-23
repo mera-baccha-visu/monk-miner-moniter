@@ -49,7 +49,7 @@
 
         .blur-effect { filter: blur(12px); pointer-events: none; user-select: none; }
 
-        /* ═══════════════ HEADER ═══════════════ */
+        /* HEADER */
         header {
             background: linear-gradient(180deg, #050e1f 0%, #020409 100%);
             padding: 16px 28px;
@@ -107,7 +107,7 @@
             opacity: 0.5;
         }
 
-        /* ═══════════════ STATS BAR ═══════════════ */
+        /* STATS BAR */
         .stats-bar { display: flex; gap: 10px; align-items: stretch; }
 
         .stat-badge, .contact-badge {
@@ -167,7 +167,7 @@
             line-height: 1.2;
         }
 
-        /* ═══════════════ LATENCY TAPE ═══════════════ */
+        /* LATENCY TAPE */
         .latency-tape {
             background: #030810;
             padding: 7px 20px;
@@ -197,7 +197,7 @@
 
         .lat-dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; }
 
-        /* ═══════════════ GRID ═══════════════ */
+        /* GRID */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -209,7 +209,7 @@
             z-index: 1;
         }
 
-        /* ═══════════════ MINER CARD ═══════════════ */
+        /* MINER CARD */
         .node-card {
             background: var(--bg-card);
             border-radius: 6px;
@@ -258,7 +258,6 @@
             box-shadow: 0 16px 40px rgba(0,0,0,0.6), 0 0 20px rgba(0,229,255,0.08);
         }
 
-        /* Card Header */
         .node-header {
             background: linear-gradient(90deg, #040c1a, #060d1a);
             padding: 13px 16px;
@@ -290,10 +289,7 @@
             font-size: 13px;
         }
 
-        .node-title .miner-icon {
-            color: var(--gold);
-            font-size: 12px;
-        }
+        .node-title .miner-icon { color: var(--gold); font-size: 12px; }
 
         .header-actions { display: flex; align-items: center; gap: 8px; }
 
@@ -341,7 +337,6 @@
             box-shadow: 0 0 12px rgba(0,229,255,0.3);
         }
 
-        /* Card Body */
         .node-body {
             flex-grow: 1;
             position: relative;
@@ -351,7 +346,6 @@
 
         iframe { width: 100%; height: 100%; border: none; display: block; }
 
-        /* Loading Overlay */
         .custom-overlay-panel {
             position: absolute;
             top: 0; left: 0;
@@ -367,8 +361,7 @@
         }
 
         .loader-hex {
-            width: 50px;
-            height: 50px;
+            width: 50px; height: 50px;
             position: relative;
             margin-bottom: 18px;
         }
@@ -411,7 +404,7 @@
         .panel-error-title { font-size: 15px; font-weight: bold; color: #e2e8f0; margin-bottom: 8px; letter-spacing: 2px; font-family: 'Orbitron', monospace; }
         .panel-error-desc { font-size: 12px; color: var(--text-dim); line-height: 1.6; max-width: 220px; }
 
-        /* ═══════════════ FULLSCREEN ═══════════════ */
+        /* FULLSCREEN */
         .fullscreen-overlay {
             display: none;
             position: fixed;
@@ -433,7 +426,10 @@
 
         .fullscreen-body { flex-grow: 1; background: var(--bg-deep); position: relative; }
 
-        /* ═══════════════ LOCK SCREEN ═══════════════ */
+        /* ═══════════════════════════════════════
+           LOCK SCREEN — FRESH REWRITE
+           Har 5 sec mein sync hota hai
+        ═══════════════════════════════════════ */
         .lock-overlay {
             display: none;
             position: fixed;
@@ -464,14 +460,62 @@
             background: linear-gradient(90deg, transparent, var(--danger), transparent);
         }
 
-        .lock-box h2 { color: var(--danger); margin-bottom: 20px; font-size: 22px; letter-spacing: 2px; font-weight: 900; font-family: 'Orbitron', monospace; }
-        .lock-box .price-line { color: var(--danger); font-size: 21px; font-weight: 900; font-family: 'Orbitron', monospace; margin-bottom: 12px; text-shadow: 0 0 12px rgba(244,63,94,0.5); line-height: 1.7; }
-        .lock-box .contact-line { color: #00ff88; font-size: 19px; font-weight: bold; margin-bottom: 25px; line-height: 1.7; }
-        .lock-box .thank-line { color: #64748b; font-size: 15px; letter-spacing: 2px; margin-top: 6px; }
-        .whatsapp-btn { background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; padding: 14px 28px; font-weight: bold; font-size: 15px; border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 20px rgba(22,163,74,0.3); transition: all 0.2s; letter-spacing: 1px; }
-        .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(22,163,74,0.4); }
+        .lock-box h2 {
+            color: var(--danger);
+            margin-bottom: 20px;
+            font-size: 22px;
+            letter-spacing: 2px;
+            font-weight: 900;
+            font-family: 'Orbitron', monospace;
+        }
 
-        /* ═══════════════ FOOTER TICKER ═══════════════ */
+        .lock-box .price-line {
+            color: var(--danger);
+            font-size: 21px;
+            font-weight: 900;
+            font-family: 'Orbitron', monospace;
+            margin-bottom: 12px;
+            text-shadow: 0 0 12px rgba(244,63,94,0.5);
+            line-height: 1.7;
+        }
+
+        .lock-box .contact-line {
+            color: #00ff88;
+            font-size: 19px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .lock-box .thank-line {
+            color: #64748b;
+            font-size: 15px;
+            letter-spacing: 2px;
+            margin-top: 6px;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(135deg, #16a34a, #15803d);
+            color: #fff;
+            padding: 14px 28px;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 20px rgba(22,163,74,0.3);
+            transition: all 0.2s;
+            letter-spacing: 1px;
+        }
+
+        .whatsapp-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(22,163,74,0.4);
+        }
+
+        /* FOOTER TICKER */
         footer {
             position: fixed;
             bottom: 0; left: 0;
@@ -496,7 +540,8 @@
         .marquee { display: flex; white-space: nowrap; animation: marquee 35s linear infinite; }
         .ticker-item { margin-right: 50px; font-size: 14px; letter-spacing: 1.5px; font-weight: bold; display: inline-flex; align-items: center; gap: 6px; }
         .ticker-sep { color: var(--border-bright); margin-right: 50px; font-size: 14px; }
-        .up { color: var(--green); } .down { color: var(--danger); }
+        .up { color: var(--green); }
+        .down { color: var(--danger); }
         @keyframes marquee { 0% { transform: translateX(100vw); } 100% { transform: translateX(-100%); } }
     </style>
 </head>
@@ -534,6 +579,7 @@
         </div>
     </div>
 
+    <!-- LOCK SCREEN HTML — same popup, fresh JS -->
     <div class="lock-overlay" id="paymentLockScreen">
         <div class="lock-box">
             <h2>🔒 SUBSCRIPTION EXPIRED</h2>
@@ -573,11 +619,65 @@
     </footer>
 
     <script>
-        // ✅ Expiry date — test ke baad yahan change karo
-        // Format: "YYYY-MM-DDTHH:MM:SS"  (24-hour time, local time)
-        const expiryDateString = "2026-06-30T23:59:00";
+        // ═══════════════════════════════════════════════════
+        //  EXPIRY CONFIG
+        //  Sirf yeh ek line badlo next month ke liye
+        //  Format: "YYYY-MM-DDTHH:MM:SS"  (24-hour, local time)
+        // ═══════════════════════════════════════════════════
+        const EXPIRY = "2026-06-30T23:59:00";
 
-        const nodesConfig = [
+        // ═══════════════════════════════════════════════════
+        //  LOCK ENGINE — FRESH REWRITE
+        //  Har 5 seconds mein check + apply karta hai
+        // ═══════════════════════════════════════════════════
+        var _lockTimer = null;
+        var _isLocked  = false;
+
+        function _applyLock() {
+            if (_isLocked) return;          // already locked, kuch nahi karna
+            _isLocked = true;
+
+            // 1. Dashboard blur karo
+            document.getElementById('mainContent').classList.add('blur-effect');
+
+            // 2. Popup dikhao
+            document.getElementById('paymentLockScreen').style.display = 'flex';
+
+            // 3. Agar koi fullscreen open ho to band karo
+            closeNode();
+
+            // 4. Timer band karo — kaam khatam
+            if (_lockTimer) { clearInterval(_lockTimer); _lockTimer = null; }
+        }
+
+        function _removeLock() {
+            if (!_isLocked) return;         // already unlocked
+            _isLocked = false;
+
+            document.getElementById('mainContent').classList.remove('blur-effect');
+            document.getElementById('paymentLockScreen').style.display = 'none';
+        }
+
+        function _checkExpiry() {
+            var now    = new Date();
+            var expiry = new Date(EXPIRY);
+
+            if (now >= expiry) {
+                _applyLock();
+            } else {
+                _removeLock();
+            }
+        }
+
+        function _startLockEngine() {
+            _checkExpiry();                          // page load pe turant check
+            _lockTimer = setInterval(_checkExpiry, 5000); // phir har 5 sec
+        }
+
+        // ═══════════════════════════════════════════════════
+        //  NODES CONFIG
+        // ═══════════════════════════════════════════════════
+        var nodesConfig = [
             { id: "01", name: "MINER 01", url: "https://monk-monitor.localtunnel.me" },
             { id: "02", name: "MINER 02", url: "https://atul-node02.localtunnel.me" },
             { id: "03", name: "MINER 03", url: "https://atul-node03.localtunnel.me" },
@@ -590,72 +690,50 @@
             { id: "10", name: "MINER 10", url: "https://atul-node10.localtunnel.me" }
         ];
 
-        let onlineNodes = 0;
-        let checkedCount = 0;
-        let lockIntervalId = null; // interval reference store karenge taaki double interval na bane
+        var onlineNodes = 0;
+        var checkedCount = 0;
 
-        // ─────────────────────────────────────────
-        // PAYMENT CHECK — har 30 sec me call hogi
-        // ─────────────────────────────────────────
-        function checkPaymentStatus() {
-            const currentDate = new Date();
-            const expiryDate = new Date(expiryDateString);
-            if (currentDate >= expiryDate) {
-                // Lock karo
-                document.getElementById('mainContent').classList.add('blur-effect');
-                document.getElementById('paymentLockScreen').style.display = 'flex';
-                closeNode();
-
-                // Interval band karo — baar baar run karne ki zaroorat nahi
-                if (lockIntervalId) {
-                    clearInterval(lockIntervalId);
-                    lockIntervalId = null;
-                }
-                return true; // locked
-            }
-            return false; // still active
-        }
-
-        // ─────────────────────────────────────────
-        // DASHBOARD RENDER
-        // ─────────────────────────────────────────
+        // ═══════════════════════════════════════════════════
+        //  DASHBOARD RENDER
+        // ═══════════════════════════════════════════════════
         function renderDashboard() {
-            const container = document.getElementById('gridContainer');
-            const tape = document.getElementById('latencyTape');
+            var container = document.getElementById('gridContainer');
+            var tape      = document.getElementById('latencyTape');
             container.innerHTML = '';
             tape.innerHTML = '';
-            onlineNodes = 0;
+            onlineNodes  = 0;
             checkedCount = 0;
 
-            nodesConfig.forEach((node) => {
+            nodesConfig.forEach(function(node) {
+
                 // Latency tape item
-                const tapeItem = document.createElement('div');
+                var tapeItem = document.createElement('div');
                 tapeItem.className = 'latency-item';
-                tapeItem.id = `tape-${node.id}`;
-                tapeItem.innerHTML = `<span class="lat-dot" style="background:#f43f5e"></span> ${node.name}: <span style="color:#f43f5e">OFFLINE</span>`;
+                tapeItem.id = 'tape-' + node.id;
+                tapeItem.innerHTML = '<span class="lat-dot" style="background:#f43f5e"></span> ' + node.name + ': <span style="color:#f43f5e">OFFLINE</span>';
                 tape.appendChild(tapeItem);
 
                 // Card
-                const card = document.createElement('div');
+                var card = document.createElement('div');
                 card.className = 'node-card';
-                card.id = `card-${node.id}`;
+                card.id = 'card-' + node.id;
 
-                const header = document.createElement('div');
+                var header = document.createElement('div');
                 header.className = 'node-header';
 
-                const titleSpan = document.createElement('div');
+                var titleSpan = document.createElement('div');
                 titleSpan.className = 'node-title';
-                titleSpan.innerHTML = `<span class="miner-icon">⬡</span> ${node.name}`;
+                titleSpan.innerHTML = '<span class="miner-icon">⬡</span> ' + node.name;
 
-                const actionsDiv = document.createElement('div');
+                var actionsDiv = document.createElement('div');
                 actionsDiv.className = 'header-actions';
 
-                const statusTag = document.createElement('span');
-                statusTag.id = `status-${node.id}`;
+                var statusTag = document.createElement('span');
+                statusTag.id = 'status-' + node.id;
                 statusTag.className = 'status-tag dead';
                 statusTag.innerText = 'OFFLINE';
 
-                const zoomBtn = document.createElement('button');
+                var zoomBtn = document.createElement('button');
                 zoomBtn.className = 'action-btn';
                 zoomBtn.innerText = 'EXPAND ⛶';
 
@@ -664,20 +742,17 @@
                 header.appendChild(titleSpan);
                 header.appendChild(actionsDiv);
 
-                const body = document.createElement('div');
+                var body = document.createElement('div');
                 body.className = 'node-body';
 
-                const iframe = document.createElement('iframe');
-                iframe.id = `iframe-${node.id}`;
+                var iframe = document.createElement('iframe');
+                iframe.id = 'iframe-' + node.id;
                 iframe.loading = 'lazy';
 
-                const loadingPanel = document.createElement('div');
+                var loadingPanel = document.createElement('div');
                 loadingPanel.className = 'custom-overlay-panel';
-                loadingPanel.id = `overlay-${node.id}`;
-                loadingPanel.innerHTML = `
-                    <div class="loader-hex"></div>
-                    <div class="panel-status-text">INITIALIZING HASH ENGINE...</div>
-                `;
+                loadingPanel.id = 'overlay-' + node.id;
+                loadingPanel.innerHTML = '<div class="loader-hex"></div><div class="panel-status-text">INITIALIZING HASH ENGINE...</div>';
 
                 body.appendChild(iframe);
                 body.appendChild(loadingPanel);
@@ -685,16 +760,16 @@
                 card.appendChild(body);
                 container.appendChild(card);
 
-                // Node reachability check
-                let startTime = Date.now();
-                let controller = new AbortController();
-                let timeoutId = setTimeout(() => controller.abort(), 4500);
+                // Reachability check
+                var startTime  = Date.now();
+                var controller = new AbortController();
+                var timeoutId  = setTimeout(function() { controller.abort(); }, 4500);
 
                 fetch(node.url, { signal: controller.signal })
-                    .then(r => r.text())
-                    .then(text => {
+                    .then(function(r) { return r.text(); })
+                    .then(function(text) {
                         clearTimeout(timeoutId);
-                        let latency = Date.now() - startTime;
+                        var latency = Date.now() - startTime;
 
                         if (text.includes("503") || text.includes("Tunnel Unavailable") || text.includes("tunnel")) {
                             throw new Error("Tunnel Signature");
@@ -707,21 +782,17 @@
                         iframe.src = node.url;
                         onlineNodes++;
 
-                        tapeItem.innerHTML = `<span class="lat-dot" style="background:#00ff88"></span> <span style="color:#d0e8ff">${node.name}</span>: <span style="color:#00ff88">${latency}ms</span>`;
+                        tapeItem.innerHTML = '<span class="lat-dot" style="background:#00ff88"></span> <span style="color:#d0e8ff">' + node.name + '</span>: <span style="color:#00ff88">' + latency + 'ms</span>';
                         zoomBtn.onclick = function() { openNode(node.url, node.name, false); };
                         finalizeCounters();
                     })
-                    .catch(() => {
+                    .catch(function() {
                         clearTimeout(timeoutId);
                         statusTag.className = 'status-tag dead';
                         statusTag.innerText = 'FAULT';
                         iframe.style.display = 'none';
 
-                        loadingPanel.innerHTML = `
-                            <div class="error-vector">🔌</div>
-                            <div class="panel-error-title">MINER OFFLINE</div>
-                            <div class="panel-error-desc">Machine unreachable. Power loss or tunnel process drop detected.</div>
-                        `;
+                        loadingPanel.innerHTML = '<div class="error-vector">🔌</div><div class="panel-error-title">MINER OFFLINE</div><div class="panel-error-desc">Machine unreachable. Power loss or tunnel process drop detected.</div>';
 
                         zoomBtn.onclick = function() { openNode(node.url, node.name, true); };
                         finalizeCounters();
@@ -737,19 +808,19 @@
             }
         }
 
-        // ─────────────────────────────────────────
-        // FULLSCREEN MODAL
-        // ─────────────────────────────────────────
+        // ═══════════════════════════════════════════════════
+        //  FULLSCREEN MODAL
+        // ═══════════════════════════════════════════════════
         function openNode(url, nodeName, isOffline) {
             document.getElementById('modalNodeTitle').innerText = "REMOTE INTERFACE // " + nodeName;
-            const modalIframe = document.getElementById('fullscreenIframe');
-            const modalError = document.getElementById('modalErrorScreen');
+            var modalIframe = document.getElementById('fullscreenIframe');
+            var modalError  = document.getElementById('modalErrorScreen');
 
             if (isOffline) {
                 modalIframe.style.display = 'none';
-                modalError.style.display = 'flex';
+                modalError.style.display  = 'flex';
             } else {
-                modalError.style.display = 'none';
+                modalError.style.display  = 'none';
                 modalIframe.style.display = 'block';
                 modalIframe.src = url;
             }
@@ -761,19 +832,14 @@
             document.getElementById('fullscreenIframe').src = '';
         }
 
-        // ─────────────────────────────────────────
-        // PAGE LOAD
-        // ─────────────────────────────────────────
+        // ═══════════════════════════════════════════════════
+        //  PAGE LOAD
+        // ═══════════════════════════════════════════════════
         window.onload = function() {
-            if (!checkPaymentStatus()) {
-                renderDashboard();
+            _startLockEngine();   // lock engine pehle start karo
+            if (!_isLocked) {
+                renderDashboard();    // sirf unlock hone par dashboard load karo
             }
-
-            // ✅ Live clock — har 30 seconds pe payment check
-            // Agar 9:55 PM aa jaaye tab bhi page khula ho to automatically lock ho jaayega
-            lockIntervalId = setInterval(function() {
-                checkPaymentStatus();
-            }, 30000); // 30,000ms = 30 seconds
         };
     </script>
 </body>
