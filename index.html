@@ -34,7 +34,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated grid background */
         body::before {
             content: '';
             position: fixed;
@@ -64,7 +63,6 @@
             box-shadow: 0 4px 30px rgba(0,0,0,0.8), 0 1px 0 rgba(0,229,255,0.08);
         }
 
-        /* Scanline on header */
         header::after {
             content: '';
             position: absolute;
@@ -112,7 +110,6 @@
         /* ═══════════════ STATS BAR ═══════════════ */
         .stats-bar { display: flex; gap: 10px; align-items: stretch; }
 
-        /* All 3 badges — same width, same height, same font */
         .stat-badge, .contact-badge {
             width: 140px;
             height: 58px;
@@ -226,7 +223,6 @@
             box-shadow: 0 8px 24px rgba(0,0,0,0.5);
         }
 
-        /* Corner accents */
         .node-card::before, .node-card::after {
             content: '';
             position: absolute;
@@ -370,7 +366,6 @@
             z-index: 40;
         }
 
-        /* Hexagon loader */
         .loader-hex {
             width: 50px;
             height: 50px;
@@ -578,8 +573,8 @@
     </footer>
 
     <script>
-        // TEST MODE - Lock at 9:55 PM today (May 23, 2026)
-        // After testing, change to next month end e.g. "2026-06-30"
+        // ✅ Expiry date — test ke baad yahan change karo
+        // Format: "YYYY-MM-DDTHH:MM:SS"  (24-hour time, local time)
         const expiryDateString = "2026-05-23T21:55:00";
 
         const nodesConfig = [
@@ -597,20 +592,50 @@
 
         let onlineNodes = 0;
         let checkedCount = 0;
+        let lockIntervalId = null; // interval reference store karenge taaki double interval na bane
 
+        // ─────────────────────────────────────────
+        // PAYMENT CHECK — har 30 sec me call hogi
+        // ─────────────────────────────────────────
+        function checkPaymentStatus() {
+            const currentDate = new Date();
+            const expiryDate = new Date(expiryDateString);
+            if (currentDate >= expiryDate) {
+                // Lock karo
+                document.getElementById('mainContent').classList.add('blur-effect');
+                document.getElementById('paymentLockScreen').style.display = 'flex';
+                closeNode();
+
+                // Interval band karo — baar baar run karne ki zaroorat nahi
+                if (lockIntervalId) {
+                    clearInterval(lockIntervalId);
+                    lockIntervalId = null;
+                }
+                return true; // locked
+            }
+            return false; // still active
+        }
+
+        // ─────────────────────────────────────────
+        // DASHBOARD RENDER
+        // ─────────────────────────────────────────
         function renderDashboard() {
             const container = document.getElementById('gridContainer');
             const tape = document.getElementById('latencyTape');
             container.innerHTML = '';
             tape.innerHTML = '';
+            onlineNodes = 0;
+            checkedCount = 0;
 
             nodesConfig.forEach((node) => {
+                // Latency tape item
                 const tapeItem = document.createElement('div');
                 tapeItem.className = 'latency-item';
                 tapeItem.id = `tape-${node.id}`;
                 tapeItem.innerHTML = `<span class="lat-dot" style="background:#f43f5e"></span> ${node.name}: <span style="color:#f43f5e">OFFLINE</span>`;
                 tape.appendChild(tapeItem);
 
+                // Card
                 const card = document.createElement('div');
                 card.className = 'node-card';
                 card.id = `card-${node.id}`;
@@ -660,6 +685,7 @@
                 card.appendChild(body);
                 container.appendChild(card);
 
+                // Node reachability check
                 let startTime = Date.now();
                 let controller = new AbortController();
                 let timeoutId = setTimeout(() => controller.abort(), 4500);
@@ -705,24 +731,15 @@
 
         function finalizeCounters() {
             checkedCount++;
-            if (checkedCount <= 10) {
+            if (checkedCount <= nodesConfig.length) {
                 document.getElementById('onlineCount').innerText = onlineNodes;
-                document.getElementById('offlineCount').innerText = 10 - onlineNodes;
+                document.getElementById('offlineCount').innerText = nodesConfig.length - onlineNodes;
             }
         }
 
-        function checkPaymentStatus() {
-            const currentDate = new Date();
-            const expiryDate = new Date(expiryDateString);
-            if (currentDate >= expiryDate) {
-                document.getElementById('mainContent').classList.add('blur-effect');
-                document.getElementById('paymentLockScreen').style.display = 'flex';
-                closeNode();
-                return true;
-            }
-            return false;
-        }
-
+        // ─────────────────────────────────────────
+        // FULLSCREEN MODAL
+        // ─────────────────────────────────────────
         function openNode(url, nodeName, isOffline) {
             document.getElementById('modalNodeTitle').innerText = "REMOTE INTERFACE // " + nodeName;
             const modalIframe = document.getElementById('fullscreenIframe');
@@ -744,8 +761,19 @@
             document.getElementById('fullscreenIframe').src = '';
         }
 
+        // ─────────────────────────────────────────
+        // PAGE LOAD
+        // ─────────────────────────────────────────
         window.onload = function() {
-            if (!checkPaymentStatus()) { renderDashboard(); }
+            if (!checkPaymentStatus()) {
+                renderDashboard();
+            }
+
+            // ✅ Live clock — har 30 seconds pe payment check
+            // Agar 9:55 PM aa jaaye tab bhi page khula ho to automatically lock ho jaayega
+            lockIntervalId = setInterval(function() {
+                checkPaymentStatus();
+            }, 30000); // 30,000ms = 30 seconds
         };
     </script>
 </body>
