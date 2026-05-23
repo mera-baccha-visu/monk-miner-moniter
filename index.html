@@ -49,7 +49,6 @@
 
         .blur-effect { filter: blur(12px); pointer-events: none; user-select: none; }
 
-        /* HEADER */
         header {
             background: linear-gradient(180deg, #050e1f 0%, #020409 100%);
             padding: 16px 28px;
@@ -107,7 +106,6 @@
             opacity: 0.5;
         }
 
-        /* STATS BAR */
         .stats-bar { display: flex; gap: 10px; align-items: stretch; }
 
         .stat-badge, .contact-badge {
@@ -167,7 +165,6 @@
             line-height: 1.2;
         }
 
-        /* LATENCY TAPE */
         .latency-tape {
             background: #030810;
             padding: 7px 20px;
@@ -197,7 +194,6 @@
 
         .lat-dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; }
 
-        /* GRID */
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -209,7 +205,6 @@
             z-index: 1;
         }
 
-        /* MINER CARD */
         .node-card {
             background: var(--bg-card);
             border-radius: 6px;
@@ -248,9 +243,7 @@
             box-shadow: 0 0 20px rgba(0,255,136,0.08), 0 8px 24px rgba(0,0,0,0.5);
         }
 
-        .node-card.live-glow::before, .node-card.live-glow::after {
-            border-color: var(--green);
-        }
+        .node-card.live-glow::before, .node-card.live-glow::after { border-color: var(--green); }
 
         .node-card:hover {
             transform: translateY(-5px);
@@ -360,11 +353,7 @@
             z-index: 40;
         }
 
-        .loader-hex {
-            width: 50px; height: 50px;
-            position: relative;
-            margin-bottom: 18px;
-        }
+        .loader-hex { width: 50px; height: 50px; position: relative; margin-bottom: 18px; }
 
         .loader-hex::before, .loader-hex::after {
             content: '';
@@ -392,19 +381,11 @@
 
         @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 
-        .panel-status-text {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--text-dim);
-            font-weight: bold;
-        }
-
+        .panel-status-text { font-size: 13px; text-transform: uppercase; letter-spacing: 3px; color: var(--text-dim); font-weight: bold; }
         .error-vector { font-size: 40px; margin-bottom: 12px; filter: drop-shadow(0 0 8px rgba(244,63,94,0.5)); }
         .panel-error-title { font-size: 15px; font-weight: bold; color: #e2e8f0; margin-bottom: 8px; letter-spacing: 2px; font-family: 'Orbitron', monospace; }
         .panel-error-desc { font-size: 12px; color: var(--text-dim); line-height: 1.6; max-width: 220px; }
 
-        /* FULLSCREEN */
         .fullscreen-overlay {
             display: none;
             position: fixed;
@@ -426,10 +407,6 @@
 
         .fullscreen-body { flex-grow: 1; background: var(--bg-deep); position: relative; }
 
-        /* ═══════════════════════════════════════
-           LOCK SCREEN — FRESH REWRITE
-           Har 5 sec mein sync hota hai
-        ═══════════════════════════════════════ */
         .lock-overlay {
             display: none;
             position: fixed;
@@ -460,39 +437,10 @@
             background: linear-gradient(90deg, transparent, var(--danger), transparent);
         }
 
-        .lock-box h2 {
-            color: var(--danger);
-            margin-bottom: 20px;
-            font-size: 22px;
-            letter-spacing: 2px;
-            font-weight: 900;
-            font-family: 'Orbitron', monospace;
-        }
-
-        .lock-box .price-line {
-            color: var(--danger);
-            font-size: 21px;
-            font-weight: 900;
-            font-family: 'Orbitron', monospace;
-            margin-bottom: 12px;
-            text-shadow: 0 0 12px rgba(244,63,94,0.5);
-            line-height: 1.7;
-        }
-
-        .lock-box .contact-line {
-            color: #00ff88;
-            font-size: 19px;
-            font-weight: bold;
-            margin-bottom: 25px;
-            line-height: 1.7;
-        }
-
-        .lock-box .thank-line {
-            color: #64748b;
-            font-size: 15px;
-            letter-spacing: 2px;
-            margin-top: 6px;
-        }
+        .lock-box h2 { color: var(--danger); margin-bottom: 20px; font-size: 22px; letter-spacing: 2px; font-weight: 900; font-family: 'Orbitron', monospace; }
+        .lock-box .price-line { color: var(--danger); font-size: 21px; font-weight: 900; font-family: 'Orbitron', monospace; margin-bottom: 12px; text-shadow: 0 0 12px rgba(244,63,94,0.5); line-height: 1.7; }
+        .lock-box .contact-line { color: #00ff88; font-size: 19px; font-weight: bold; margin-bottom: 25px; line-height: 1.7; }
+        .lock-box .thank-line { color: #64748b; font-size: 15px; letter-spacing: 2px; margin-top: 6px; }
 
         .whatsapp-btn {
             background: linear-gradient(135deg, #16a34a, #15803d);
@@ -510,12 +458,8 @@
             letter-spacing: 1px;
         }
 
-        .whatsapp-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(22,163,74,0.4);
-        }
+        .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(22,163,74,0.4); }
 
-        /* FOOTER TICKER */
         footer {
             position: fixed;
             bottom: 0; left: 0;
@@ -559,19 +503,18 @@
                 <div class="stat-badge offline">● FAULT<br><span id="offlineCount">10</span></div>
             </div>
         </header>
-
         <div class="latency-tape" id="latencyTape"></div>
         <div class="grid-container" id="gridContainer"></div>
     </div>
 
     <div class="fullscreen-overlay" id="fullscreenOverlay">
         <div class="fullscreen-header">
-            <h2 id="modalNodeTitle" style="color: var(--cyan); font-size: 14px; letter-spacing: 2px; font-family: 'Orbitron', monospace;">REMOTE CORE CONSOLE INTERFACE</h2>
-            <button class="action-btn" onclick="closeNode()" style="padding: 8px 20px; font-size: 12px;">✖ DISCONNECT</button>
+            <h2 id="modalNodeTitle" style="color:var(--cyan);font-size:14px;letter-spacing:2px;font-family:'Orbitron',monospace;">REMOTE CORE CONSOLE INTERFACE</h2>
+            <button class="action-btn" onclick="closeNode()" style="padding:8px 20px;font-size:12px;">✖ DISCONNECT</button>
         </div>
         <div class="fullscreen-body">
             <iframe id="fullscreenIframe" src=""></iframe>
-            <div class="custom-overlay-panel" id="modalErrorScreen" style="display:none; z-index: 999999;">
+            <div class="custom-overlay-panel" id="modalErrorScreen" style="display:none;z-index:999999;">
                 <div class="error-vector">❌</div>
                 <div class="panel-error-title">SESSION TERMINATED</div>
                 <div class="panel-error-desc">Remote hash board engine un-reachable state me chala gaya hai. Network route debug karein.</div>
@@ -579,13 +522,10 @@
         </div>
     </div>
 
-    <!-- LOCK SCREEN HTML — same popup, fresh JS -->
     <div class="lock-overlay" id="paymentLockScreen">
         <div class="lock-box">
             <h2>🔒 SUBSCRIPTION EXPIRED</h2>
-            <div class="price-line">
-                💰 Please Pay ₹99 / Month
-            </div>
+            <div class="price-line">💰 Please Pay ₹99 / Month</div>
             <div class="contact-line">
                 📲 For Payment Contact Owner<br>
                 WhatsApp: <strong>+91 7678317589</strong>
@@ -620,58 +560,43 @@
 
     <script>
         // ═══════════════════════════════════════════════════
-        //  EXPIRY CONFIG
-        //  Sirf yeh ek line badlo next month ke liye
+        //  EXPIRY CONFIG — sirf yeh line badlo next month ke liye
         //  Format: "YYYY-MM-DDTHH:MM:SS"  (24-hour, local time)
         // ═══════════════════════════════════════════════════
-        const EXPIRY = "2026-05-23T22:50:00";
+        var EXPIRY = "2026-06-30T23:59:00";
 
         // ═══════════════════════════════════════════════════
-        //  LOCK ENGINE — FRESH REWRITE
-        //  Har 5 seconds mein check + apply karta hai
+        //  LOCK ENGINE
+        //  - Har 5 sec mein date check hota hai
+        //  - Lock aur unlock DONO kaam karte hain
+        //  - Timer kabhi band nahi hota — hamesha sync karta rahe
         // ═══════════════════════════════════════════════════
-        var _lockTimer = null;
-        var _isLocked  = false;
-
-        function _applyLock() {
-            if (_isLocked) return;          // already locked, kuch nahi karna
-            _isLocked = true;
-
-            // 1. Dashboard blur karo
-            document.getElementById('mainContent').classList.add('blur-effect');
-
-            // 2. Popup dikhao
-            document.getElementById('paymentLockScreen').style.display = 'flex';
-
-            // 3. Agar koi fullscreen open ho to band karo
-            closeNode();
-
-            // 4. Timer band karo — kaam khatam
-            if (_lockTimer) { clearInterval(_lockTimer); _lockTimer = null; }
-        }
-
-        function _removeLock() {
-            if (!_isLocked) return;         // already unlocked
-            _isLocked = false;
-
-            document.getElementById('mainContent').classList.remove('blur-effect');
-            document.getElementById('paymentLockScreen').style.display = 'none';
-        }
+        var _dashboardLoaded = false;
 
         function _checkExpiry() {
             var now    = new Date();
             var expiry = new Date(EXPIRY);
+            var locked = (now >= expiry);
 
-            if (now >= expiry) {
-                _applyLock();
+            var mainEl  = document.getElementById('mainContent');
+            var lockEl  = document.getElementById('paymentLockScreen');
+
+            if (locked) {
+                // === LOCK STATE ===
+                mainEl.classList.add('blur-effect');
+                lockEl.style.display = 'flex';
+                closeNode();
             } else {
-                _removeLock();
-            }
-        }
+                // === UNLOCK STATE ===
+                mainEl.classList.remove('blur-effect');
+                lockEl.style.display = 'none';
 
-        function _startLockEngine() {
-            _checkExpiry();                          // page load pe turant check
-            _lockTimer = setInterval(_checkExpiry, 5000); // phir har 5 sec
+                // Dashboard pehli baar hi load karo
+                if (!_dashboardLoaded) {
+                    _dashboardLoaded = true;
+                    renderDashboard();
+                }
+            }
         }
 
         // ═══════════════════════════════════════════════════
@@ -690,12 +615,9 @@
             { id: "10", name: "MINER 10", url: "https://atul-node10.localtunnel.me" }
         ];
 
-        var onlineNodes = 0;
+        var onlineNodes  = 0;
         var checkedCount = 0;
 
-        // ═══════════════════════════════════════════════════
-        //  DASHBOARD RENDER
-        // ═══════════════════════════════════════════════════
         function renderDashboard() {
             var container = document.getElementById('gridContainer');
             var tape      = document.getElementById('latencyTape');
@@ -705,15 +627,12 @@
             checkedCount = 0;
 
             nodesConfig.forEach(function(node) {
-
-                // Latency tape item
                 var tapeItem = document.createElement('div');
                 tapeItem.className = 'latency-item';
                 tapeItem.id = 'tape-' + node.id;
                 tapeItem.innerHTML = '<span class="lat-dot" style="background:#f43f5e"></span> ' + node.name + ': <span style="color:#f43f5e">OFFLINE</span>';
                 tape.appendChild(tapeItem);
 
-                // Card
                 var card = document.createElement('div');
                 card.className = 'node-card';
                 card.id = 'card-' + node.id;
@@ -760,7 +679,6 @@
                 card.appendChild(body);
                 container.appendChild(card);
 
-                // Reachability check
                 var startTime  = Date.now();
                 var controller = new AbortController();
                 var timeoutId  = setTimeout(function() { controller.abort(); }, 4500);
@@ -791,9 +709,7 @@
                         statusTag.className = 'status-tag dead';
                         statusTag.innerText = 'FAULT';
                         iframe.style.display = 'none';
-
                         loadingPanel.innerHTML = '<div class="error-vector">🔌</div><div class="panel-error-title">MINER OFFLINE</div><div class="panel-error-desc">Machine unreachable. Power loss or tunnel process drop detected.</div>';
-
                         zoomBtn.onclick = function() { openNode(node.url, node.name, true); };
                         finalizeCounters();
                     });
@@ -808,14 +724,10 @@
             }
         }
 
-        // ═══════════════════════════════════════════════════
-        //  FULLSCREEN MODAL
-        // ═══════════════════════════════════════════════════
         function openNode(url, nodeName, isOffline) {
             document.getElementById('modalNodeTitle').innerText = "REMOTE INTERFACE // " + nodeName;
             var modalIframe = document.getElementById('fullscreenIframe');
             var modalError  = document.getElementById('modalErrorScreen');
-
             if (isOffline) {
                 modalIframe.style.display = 'none';
                 modalError.style.display  = 'flex';
@@ -833,13 +745,11 @@
         }
 
         // ═══════════════════════════════════════════════════
-        //  PAGE LOAD
+        //  PAGE LOAD — timer KABHI band nahi hoga
         // ═══════════════════════════════════════════════════
         window.onload = function() {
-            _startLockEngine();   // lock engine pehle start karo
-            if (!_isLocked) {
-                renderDashboard();    // sirf unlock hone par dashboard load karo
-            }
+            _checkExpiry();                        // turant pehla check
+            setInterval(_checkExpiry, 5000);       // phir har 5 sec — lock bhi, unlock bhi
         };
     </script>
 </body>
