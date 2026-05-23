@@ -78,7 +78,7 @@
 
         .logo-section h1 {
             font-family: 'Orbitron', monospace;
-            font-size: 30px;
+            font-size: 26px;
             color: var(--gold);
             letter-spacing: 3px;
             font-weight: 900;
@@ -88,12 +88,12 @@
         .logo-section h1 .x-manipur {
             color: var(--red);
             text-shadow: 0 0 12px rgba(200,0,0,0.7), 0 0 25px rgba(150,0,0,0.4);
-            font-size: 30px;
+            font-size: 26px;
             display: inline;
         }
 
         .logo-tagline {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-dim);
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -110,15 +110,23 @@
         }
 
         /* ═══════════════ STATS BAR ═══════════════ */
-        .stats-bar { display: flex; gap: 12px; align-items: center; }
+        .stats-bar { display: flex; gap: 10px; align-items: stretch; }
 
-        .stat-badge {
-            padding: 10px 20px;
-            border-radius: 4px;
+        /* All 3 badges — same width, same height, same font */
+        .stat-badge, .contact-badge {
+            width: 140px;
+            height: 58px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 15px;
-            letter-spacing: 1.5px;
+            font-size: 13px;
+            letter-spacing: 1px;
             font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            line-height: 1.6;
             position: relative;
             overflow: hidden;
         }
@@ -150,17 +158,16 @@
         }
 
         .contact-badge {
-            padding: 10px 18px;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 14px;
-            letter-spacing: 1px;
             background: var(--gold-dim);
             color: var(--gold);
             border: 1px solid rgba(255,215,0,0.3);
             box-shadow: 0 0 10px rgba(255,215,0,0.1);
-            line-height: 1.7;
-            text-align: center;
+        }
+
+        .stat-badge span {
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 1.2;
         }
 
         /* ═══════════════ LATENCY TAPE ═══════════════ */
@@ -462,9 +469,11 @@
             background: linear-gradient(90deg, transparent, var(--danger), transparent);
         }
 
-        .lock-box h2 { color: var(--danger); margin-bottom: 15px; font-size: 22px; letter-spacing: 2px; font-weight: 900; font-family: 'Orbitron', monospace; }
-        .lock-box p { color: #5a7090; margin-bottom: 30px; line-height: 1.7; font-size: 13px; }
-        .whatsapp-btn { background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; padding: 14px 28px; font-weight: bold; font-size: 14px; border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 20px rgba(22,163,74,0.3); transition: all 0.2s; letter-spacing: 1px; }
+        .lock-box h2 { color: var(--danger); margin-bottom: 20px; font-size: 22px; letter-spacing: 2px; font-weight: 900; font-family: 'Orbitron', monospace; }
+        .lock-box .price-line { color: var(--danger); font-size: 21px; font-weight: 900; font-family: 'Orbitron', monospace; margin-bottom: 12px; text-shadow: 0 0 12px rgba(244,63,94,0.5); line-height: 1.7; }
+        .lock-box .contact-line { color: #00ff88; font-size: 19px; font-weight: bold; margin-bottom: 25px; line-height: 1.7; }
+        .lock-box .thank-line { color: #64748b; font-size: 15px; letter-spacing: 2px; margin-top: 6px; }
+        .whatsapp-btn { background: linear-gradient(135deg, #16a34a, #15803d); color: #fff; padding: 14px 28px; font-weight: bold; font-size: 15px; border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 20px rgba(22,163,74,0.3); transition: all 0.2s; letter-spacing: 1px; }
         .whatsapp-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(22,163,74,0.4); }
 
         /* ═══════════════ FOOTER TICKER ═══════════════ */
@@ -506,8 +515,8 @@
             </div>
             <div class="stats-bar">
                 <div class="contact-badge">📞 CONTACT US<br>+91 7678317589</div>
-                <div class="stat-badge online">▶ ACTIVE: <span id="onlineCount">0</span></div>
-                <div class="stat-badge offline">▶ FAULT: <span id="offlineCount">10</span></div>
+                <div class="stat-badge online">● ACTIVE<br><span id="onlineCount">0</span></div>
+                <div class="stat-badge offline">● FAULT<br><span id="offlineCount">10</span></div>
             </div>
         </header>
 
@@ -532,11 +541,19 @@
 
     <div class="lock-overlay" id="paymentLockScreen">
         <div class="lock-box">
-            <h2>⚠ ACCESS LOCKOUT</h2>
-            <p>Aapka remote tracking service module time schedule expire ho gaya hai. Agle operational block ko register karne ke liye kripya immediate network owner se sampark karke bill clear karein.</p>
-            <a href="https://wa.me/917678317589?text=Atul%20Bhai%20dashboard%20renew%20karna%20hai" target="_blank" class="whatsapp-btn">
-                ⚡ RE-ACTIVATE SYSTEM
+            <h2>🔒 SUBSCRIPTION EXPIRED</h2>
+            <div class="price-line">
+                💰 Monthly Plan &nbsp;— ₹99 / Month<br>
+                🏆 Annual Plan &nbsp;— ₹1099 / Year
+            </div>
+            <div class="contact-line">
+                📲 For Payment Contact Owner<br>
+                WhatsApp: <strong>+91 7678317589</strong>
+            </div>
+            <a href="https://wa.me/917678317589?text=Hello%2C%20I%20want%20to%20renew%20my%20Monk%20Miner%20Farm%20subscription" target="_blank" class="whatsapp-btn">
+                💬 PAY NOW ON WHATSAPP
             </a>
+            <div class="thank-line">— THANK YOU —<br>THE MONK MINER REPAIR CENTER</div>
         </div>
     </div>
 
